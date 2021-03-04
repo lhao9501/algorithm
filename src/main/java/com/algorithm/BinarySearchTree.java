@@ -275,7 +275,10 @@ public class BinarySearchTree<E> {
     }
 
     /**
-     * 前驱节点
+     * 查找node节点的前驱节点
+     *      1、如果左子树不为空，前驱节点为左子树中最右边的节点
+     *      2、如果左子树为空，父节点不为空，node节点为父节点的右子节点，前驱节点为父节点
+     *      3、如果左子树为空，父节点不为空，node节点为父节点的左子节点，前驱节点为向上找父节点，直到父节点为右子树为止
      * @param node
      * @return
      */
@@ -293,7 +296,7 @@ public class BinarySearchTree<E> {
 
         // 能来到这里的  说明左子树为null
         // 如果 该节点的左子树为空 父节点不为空 且该节点必须为该父节点的左子树  node.parent.parent.parent...
-        if (null != node.parent && node == node.parent.left) {
+        while (null != node.parent && node == node.parent.left) {
             node = node.parent;
         }
 
@@ -302,7 +305,10 @@ public class BinarySearchTree<E> {
 
 
     /**
-     * 后继节点
+     * 查找node节点的后继节点
+     *      1、如果右子树不为空，后继节点为右子树中最左的节点
+     *      2、如果右子树为空，父节点不为空，node节点为父节点的右子树，后继节点为祖父节点
+     *      3、如果右子树为空，父节点不为空，node节点为父节点的左子树，后继节点为父节点
      * @param node
      * @return
      */

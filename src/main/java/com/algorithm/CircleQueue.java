@@ -49,6 +49,11 @@ public class CircleQueue<E> {
         return elements[front];
     }
 
+    /**
+     * 元素索引
+     * @param index
+     * @return
+     */
     private int index(int index) {
         if (size != 0) {
             return (index + front) % elements.length;
