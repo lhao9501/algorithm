@@ -2,11 +2,18 @@ package com.sorting;
 
 public class BubbleSort {
 
-
+    /**
+     * 相邻元素进行比较并交换
+     *      最好 O(n)   最坏 O(n^2)   平均 O(n^2)
+     *      空间 O(1)   原地排序    具有稳定性
+     *
+     * @param arraySort
+     */
     public static void bubbleSort(int[] arraySort) {
         if (null == arraySort || arraySort.length <= 1) return;
 
-        for (int j = 0; j < arraySort.length - 1; j++) {
+        for (int j = 0; j < arraySort.length - 1; j++) {  // 外层表示 轮数 = 元素个数-1
+            // 如果发现前一轮中没有进行元素的交换  说明都有序  不需要后续的轮数了  直接跳出循环
             boolean flag = false;
 
             for (int i = 0; i < arraySort.length - 1 - j; i++) {
